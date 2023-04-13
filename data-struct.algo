@@ -1,0 +1,88 @@
+// Linear data
+
+Problem 1 solution 1
+ALGORITHM add_distinct
+VAR
+set1,set2: ARRAY [20] OF STRING;
+i,j,n,k: STRING;
+sum: STRING := 0;
+
+n:=Length(set1);
+k:=Length(set2);
+
+BEGIN
+    write ('Write your first set length');
+    read (n);
+    write ('Write your second set length');
+    read (k);
+
+    n:=Length(set1);
+    k:=Length(set2);
+
+    REPEAT
+    FOR i FROM 0 to n-1 STEP 1 DO
+    WRITE ('write your first set of elements');
+    READ (set1[i]);
+    END FOR
+
+    FOR j FROM 0 to k-1 STEP 1 DO
+        WRITE ('write your second set of elements');
+        READ (set2);
+        END FOR
+    UNTIL (set1<>[""] AND set2<>[""]);
+
+   
+
+    FOR i FROM 0 TO (n-1) STEP 1 DO
+        FOR j FROM 0 TO (k-1) STEP 1 DO
+            IF set1[i] DISTINCT(set2[j]) THEN
+             sum1:=sum+set1[i];sum:=sum1;
+            END IF;  
+        END FOR;
+    END FOR;
+
+   
+
+    FOR i FROM 0 TO (n-1) STEP 1 DO
+        FOR j FROM 0 TO (k-1) STEP 1 DO
+            IF set2[i] DISTINCT(set1[j])THEN 
+            sum2:=sum+set2[i];sum:=sum2;
+            END IF;  
+        END FOR;
+    END FOR;  
+
+    WRITE ("The sum of the distinct numbers is = sum");          
+END
+
+Problem 1 solution 2
+
+ALGORITHM add_distinct
+
+VAR
+    hash : HASH_TABLE<INTEGER,INTEGER>
+    n,i,j : INTEGER ;
+    tab : ARRAY_OF INTEGER[50]; /// taille max 256
+    add,sum:INTEGER:= 0 ;
+
+BEGIN
+    read(n);
+    tab[i]= n ; //tab for keys
+    i:= i + 1 ;
+   
+        add:= 0 ;
+        IF (hash.lookup(n) = TRUE) THEN
+            add := hash.get(n);
+            hash.insert(n,add+1);
+        ELSE
+            hash.insert(n,1);
+        END_IF
+
+    FOR j FROM 0 TO i STEP 1  DO
+        IF (hash.get(tab[j])=1) THEN
+            sum:= sum + tab[j];
+        END_IF
+    END_FOR
+
+    write("sum:= ", sum);
+
+END

@@ -1,0 +1,60 @@
+// Sorting and searching
+
+FUNCTION read_number() : INTEGER
+    VAR
+    n:INTEGER;
+  BEGIN
+        read(n);
+        return (n);
+END FUNCTION;
+
+
+PROCEDURE reading(n:INTEGER VAR T:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 1 TO n STEP 1 DO
+        read(arr[i]);
+    END_FOR
+END PROCEDURE;
+
+
+PROCEDURE put_card(n:INTEGER VAR T:ARRAY_OF INTEGER)
+VAR
+    i,max:INTEGER;
+BEGIN
+        i:=n-1;
+        IF (arr[i]<x) THEN
+            arr[i+1]:=x;
+        ELSE
+            REPEAT
+                max:=T[i];
+                arr[i+1]:=max;
+                i:=i-1;
+            UNTIL (arr[i]<x)
+            arr[i+1]:=x;
+        END_IF
+END PROCEDURE;
+
+
+PROCEDURE print_array(n:INTEGER VAR T:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        write(arr[i]);
+    END_FOR
+END PROCEDURE;
+
+
+ALGORITHM Cards
+VAR
+    tab1:ARRAY_OF INTEGER;
+    n,x:INTEGER;
+BEGIN
+    n:=read_number();
+    read_array(n,tab1);
+    X:=read_number();
+    put_card(n,tab1);
+    print_array(n,tab1);
+END

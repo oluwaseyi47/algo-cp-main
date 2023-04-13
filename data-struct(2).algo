@@ -1,0 +1,70 @@
+// Problem 2 solution 1
+
+ALGORITHM equal_numbers
+VAR
+    set1,set2: ARRAY OF INTEGER[20];
+    sum: INTEGER := 0;
+    i,j,n,k:INTEGER;
+    equal: BOOLEAN:=false;
+
+BEGIN
+    Read (n);
+    Read (k);
+        For i FROM 0 TO n-1 Step 1 DO
+            Read set1[i]
+        END_FOR
+
+        For j FROM 0 TO k-1 Step 1 DO
+            Read set2[j]
+        END_FOR
+
+       
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            WHILE (j< k) DO
+                IF (set1[i]=set2[j])
+                THEN
+                equal:= true ;
+                BREAK ;
+                END_IF
+                j:= j + 1 ;  
+
+            END_WHILE  
+
+                IF (equal:=true)
+                    THEN
+                    sum:= sum + set1[i] ;
+                    END_IF
+            END_FOR
+
+                write("sum:= ", sum*2);  
+END
+
+// Problem 2 solution 2
+
+ALGORITHM equal_nulmbers
+VAR
+    hash : HASH_TABLE<INTEGER,INTEGER>
+    sum,add : INTEGER:=0 ;
+    tab : ARRAY_OF INTEGER[20];
+    i,j,n,k:INTEGER ;
+
+BEGIN
+    read(n);
+    tab[i]= n ;
+        i:= i + 1 ;
+            IF (hash.lookup(n) ;= TRUE) THEN
+            count := htab.get(n);
+            htab.insert(n,add+1);
+        ELSE
+            htab.insert(add,1);
+        END_IF
+
+    FOR j FROM 0 TO i STEP 1  DO
+        IF (hash.get(tab[j])<>1) THEN
+            sum:= sum + tab[j]*(hash.get(tab[j]));
+        END_IF
+    END_FOR
+
+    write("sum:= ", sum);
+
+END

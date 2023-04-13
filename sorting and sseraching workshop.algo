@@ -1,0 +1,15 @@
+// Tower of hanoi
+// recursive function
+
+
+PROCEDURE hanoi(start,end,n :INTEGER)
+BEGIN
+    IF ( n == 0) THEN
+        hanoi(start, middle(start,end), n-1);
+        move(n, start, end);
+        hanoi(middle(start,end), end, n -1);
+    END_IF
+END
+
+// middle(start,end): return the middle tower bedtween start and end
+// move(n, start,end):move disk (n) from start tower to end.

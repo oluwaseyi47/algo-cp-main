@@ -1,0 +1,70 @@
+// Procedural checkpoint
+
+PROCEDURE dot_product(var Ps:FLOAT,var dim:INTEGER,var V1:ARRAY_OF INTEGER,var V2:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER:=0;
+BEGIN
+   Ps:=0;
+FOR i FROM 0 TO dim STEP 1  DO
+    Ps:=Ps+V1[i]*V2[i];
+END_FOR
+write("PS="+Ps)
+END PROCEDURE dot_product;
+
+
+FUNCTION dot_product(d:INTEGER,var V1:ARRAY_OF INTEGER,var V2:ARRAY_OF INTEGER) : return_type
+VAR
+    i:INTEGER:=0;
+BEGIN
+    Ps:=0;
+   FOR i FROM 0 TO d STEP 1  DO
+       Ps:=Ps+V1[i]*V2[i];
+   END_FOR
+   RETURN ps;
+END FUNCTION dot_product;
+
+
+FUNCTION DIM() : INTEGER
+VAR
+    n:INTEGER
+BEGIN
+read(n);
+RETURN n;
+   END
+PROCEDURE readarray(n:INTEGER,var T:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n STEP 1  DO
+    write("write the element of the array");
+    read(T[i]);
+END FUNCTION DIM;
+
+
+
+ ALGORITHM Dotproduct
+   VAR
+      dim:INTEGER;
+      Var1,Var2:ARRAY_OF INTEGER[10];
+      PS:INTEGER:=0;    
+BEGIN
+   dim:=DIM();
+   readarray(dim,Var1);
+   readarray(dim,Var2);
+
+   //----procedure
+   Dotproduct(PS, dim,V1,V2);
+      IF (PS:=0) THEN
+        write("V1 and V2 are vectors");
+      END_IF
+
+
+   //-----function
+   PS:=Dotproduc(dim,tableau1,tableau2);
+      IF (PS:=0) THEN
+        write("V1 and V2 are vectors");
+      END_IF
+     
+END
+
+
